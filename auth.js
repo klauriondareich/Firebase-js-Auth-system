@@ -7,9 +7,10 @@ function register(){
  let password = document.getElementById("password").value;
  console.log(`${email} and ${password}`);
  Auth.createUserWithEmailAndPassword(email, password).then(() =>{
-   alert("User added")
+   alert("User added");
+   window.location.replace("signin.html");
  }).catch((error) =>{
-   console.error(error.message)
+   alert(error.message)
  })
 };
 
@@ -19,8 +20,29 @@ function signIn(){
   let password = document.getElementById("signinPassword").value;
   console.log(`${email} and ${password}`);
   Auth.signInWithEmailAndPassword(email, password).then(() =>{
-    alert("signin with success")
+    alert("signin with success");
+    window.location.replace("user.html");
   }).catch((error) =>{
-    console.error(error.message)
+    alert(error.message)
   })
  };
+
+//  Allows to get the signed user data from fireabse
+ function getUserData(){
+   let user = Auth.currentUser;
+   console.log("userData", user);
+   if(user !== null){
+    document.getElementById("userEmail").innerHTML = user.email;
+    document.getElementById("userCreatedAt").innerHTML = user.metadata.creationTime;
+   }
+ }
+
+//  Allows users to signout
+ function signOut(){
+   Auth.signOut().then(() =>{
+     alert("signout with success !");
+     window.location.replace("signin.html")
+   }).catch(() =>{
+     alert(error.message)
+   })
+ }
