@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+
+    <!-- Firebase config -->
+    <script src="initialize.js"></script>
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-lg-6 ml-5 mt-2">
+          <div class="card card-body">
+            <h1 class="ml-5 mt-2">Interface Utilisateur</h1>
+            <div class="col-lg-6">
+              <span class="badge badge-success">Connecté</span>
+              <div class="mt-2">
+                <button class="btn btn-primary" onclick="getUserData()">Show user infos</button>
+              </div>
+              <div>
+                <p class="pt-2">Email : <span id="userEmail"></span></p>
+                <p>Date de création : <span id="userCreatedAt"></span></p>
+                <button class="btn btn-danger" onclick="signOut()">Se déconnecter</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
