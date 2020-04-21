@@ -20,19 +20,21 @@
     <div class="row">
       <div class="col-lg-6 ml-5 mt-2">
           <div class="card card-body">
-            <h1 class="ml-5 mt-2">Interface Utilisateur</h1>
-            <div class="col-lg-6">
-              <span class="badge badge-success">Connecté</span>
-              <div class="mt-2">
-                <button class="btn btn-primary" onclick="getUserData()">Show user infos</button>
-              </div>
-              <div>
-                <p class="pt-2">UserName : <span id="userName"></span></p>
-                <p class="pt-2">Email : <span id="userEmail"></span></p>
-                <p>Date de création : <span id="userCreatedAt"></span></p>
-                <button class="btn btn-danger" onclick="signOut()">Se déconnecter</button>
-                <a href="editUserProfile.html" class="btn btn-info">Modifier</a>
-                <button class="btn btn-success mt-2" onclick="verifyUser()">Email vérification</button>
+            <h2 class="mt-2 text-center">Editer le profil de l'utilisateur</h2>
+            <div class="col-lg-12">
+              <div class="card card-body">
+                <form style="width: 90%; margin: auto;">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="editUserName" aria-describedby="emailHelp" placeholder="Nom d'utilisateur">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="editUserEmail" aria-describedby="emailHelp" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="editUserPassword" placeholder="Mot de passe">
+                  </div>
+                </form>
+                <button class="btn btn-primary ml-4" style="width: 200px" onclick="editUserInfos()">Enregistrer</button>
               </div>
             </div>
           </div>
