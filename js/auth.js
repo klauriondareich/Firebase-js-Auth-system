@@ -19,11 +19,16 @@ function signIn(){
   let email = document.getElementById("signinEmail").value;
   let password = document.getElementById("signinPassword").value;
   console.log(`${email} and ${password}`);
-  Auth.signInWithEmailAndPassword(email, password).then(() =>{
-    alert("signin with success");
-    window.location.replace("user.html");
-  }).catch((error) =>{
-    alert(error.message);
+
+  // Set user session persistance 
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then((result) =>{
+    Auth.signInWithEmailAndPassword(email, password).then(() =>{
+      alert("signin with success");
+      window.location.replace("user.html");
+    }).catch((error) =>{
+      alert(error.message);
+    })
   })
  };
 
